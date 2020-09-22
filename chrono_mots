@@ -4,21 +4,33 @@ def main():
 
     import random
     import time
-    timer = 60
+    import winsound
     
     answer = input('Enter go for new words: ')
+    timer = 60
+    duration = 1000
+    freq = 600
+    
     if answer == 'go':
         print ('Your words are: ', random.choices(word_list, k = 3))
         for i in range (timer):
             print (str(timer - i) + 'seconds remain')
             time.sleep(1)
+                    
     else:
         print ('Please enter go when you are ready')
+        
+    winsound.Beep (freq, duration)
     restart=input('Do you want to play again? ').lower()
-    if restart == 'yes':
+    if restart == 'yes' or 'y' or 'yeah':
         main()
         
     else:
         exit()
 
 main()
+
+
+
+
+
